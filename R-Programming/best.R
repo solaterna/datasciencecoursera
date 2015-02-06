@@ -6,7 +6,7 @@ best <- function(state, outcome) {
   ##outcome<-"heart attack"
   
   ## Read outcome data
-  data <- read.csv("outcome-of-care-measures2.csv", colClasses = "character")
+  data <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
   
   ## Shrink data set
   df<-data[,c(7,2,11,17,23)]
