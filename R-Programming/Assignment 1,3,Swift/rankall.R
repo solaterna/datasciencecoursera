@@ -1,3 +1,5 @@
+R Programming Assignment 3: Hospital Quality-rankall.R 
+
 rankall <- function(outcome, num = "best") {
 
   ## Read outcome data
