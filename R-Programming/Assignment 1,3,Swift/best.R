@@ -1,4 +1,4 @@
-Programming Assignment 3: Hospital Quality-best.R
+R Programming Assignment 3: Hospital Quality-best.R
 
 best <- function(state, outcome) {
   ## Test Data
