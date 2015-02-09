@@ -1,4 +1,4 @@
-Programming Assignment 1: Air Pollution Part 1
+R Programming Assignment 1: Air Pollution Part 1
 
 pollutantmean <- function(directory, pollutant, id = 1:332) {
   ## 'directory' is a character vector of length 1 indicating
