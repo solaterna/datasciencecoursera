@@ -5,12 +5,12 @@
 # Appropriately labels the data set with descriptive variable names. 
 # From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-# Check and install dplyr is not installed
+# Check and install dplyr if not installed
 if(!require("dplyr")) {
   install.packages("dplyr")
 }
 
-# Load dplyr, using join and summarise_each later 
+# Load dplyr
 require(dplyr) 
 
 # Download if file not exist
@@ -46,12 +46,17 @@ y_test_data <- read.table("./UCI HAR Dataset/test/Y_test.txt")
 # Processing x_train data from X_train.txt and y_train data from Y_train.txt
 x_train_data <- read.table("./UCI HAR Dataset/train/X_train.txt")
 y_train_data <- read.table("./UCI HAR Dataset/train/Y_train.txt")
-cat("test and train data loaded...\n")
 
 # Processing subject_test data from subject_test.txt
 subject_test_data <- read.table("./UCI HAR Dataset/test/subject_test.txt")
 # Processing subject_train data from subject_train.txt
 subject_train_data <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+cat("test and train data loaded...\n")
+
+# Naming subject_test data
+names(subject_test_data) = "subject_id"
+# Naming subject_train data
+names(subject_train_data) = "subject_id"
 
 # Naming x_test_data variables with all features
 names(x_test_data) = features
@@ -74,11 +79,6 @@ y_train_data2 <- inner_join(y_train_data, activity_labels, by="V1")
 names(y_test_data2) <- c("activity_id","activity_label")
 # Naming y_train_data
 names(y_train_data2) <- c("activity_id","activity_label")
-
-# Naming subject_test data
-names(subject_test_data) = "subject_id"
-# Naming subject_train data
-names(subject_train_data) = "subject_id"
 
 # Combine all test data
 test_data <- cbind(y_test_data2, subject_test_data, x_test_data)
